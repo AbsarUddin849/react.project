@@ -9,7 +9,7 @@
 // export default Logo;
 
 function Logo(){
-    return <h4>from Logo</h4>
+    return <h4>Logo</h4>
 }
 
 export default Logo;

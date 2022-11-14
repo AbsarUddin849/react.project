@@ -3,21 +3,21 @@
 // import LoginOption from 'react-project/src/component/Home/LoginOption/LoginOption';
 // import Logo from 'react-project/src/component/Home/Logo/Logo';
 import'./Home.css'
-//  import Logo from './Logo';
-//  import Feed from './Feed';
-//  import LoginOption from './LoginOption';
+import Logo from './Logo';
+  import Feed from './Feed';
+  import LoginOption from './LoginOption';
 
 function Home(){
     return(
         <div className="home">
-            <div className="leftContainer"> Left Side
-            {/* <Logo/> */}
+            <div className="leftContainer"> 
+             <Logo/> 
             </div>
             <div className="centerContainer"> 
-            {/* <Feed/> */}Center 
+            <Feed/> 
              </div>
-            <div className="rightContainer">Right
-            {/* <LoginOption/> */}
+            <div className="rightContainer">
+            <LoginOption/> 
              </div>
         </div>
     );
