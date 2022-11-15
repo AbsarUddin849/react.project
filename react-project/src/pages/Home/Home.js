@@ -1,6 +1,6 @@
 
 // import Feed from '../../Component/Home/Feed/Feed';
-// import LoginOption from 'react-project/src/component/Home/LoginOption/LoginOption';
+// import LoginOption from '../../component/Home/LoginOption/LoginOption';
 // import Logo from 'react-project/src/component/Home/Logo/Logo';
 import'./Home.css'
 import Logo from '../../component/Home/logo/Logo';
@@ -11,13 +11,13 @@ function Home(){
     return(
         <div className="home">
             <div className="leftContainer"> 
-             <Logo/> 
+            <Logo/> 
             </div>
             <div className="centerContainer"> 
             <Feed/> 
              </div>
             <div className="rightContainer">
-            <LoginOption/> 
+             <LoginOption/> 
              </div>
         </div>
     );

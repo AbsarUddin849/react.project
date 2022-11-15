@@ -5,8 +5,11 @@
 // }
 
 // export default Feed;
-
+import './Feed.css';
 function Feed(){
+
+    <div className='banner'>
+</div>
     return <h4> Feed With folder</h4>
 }
 

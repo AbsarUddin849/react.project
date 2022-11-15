@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import Home from'../../component/Home/feed/Feed'
+import Home from './pages/Home/Home';
 import reportWebVitals from './reportWebVitals';
-import Feed from './component/Home/feed/Feed';
+// import Feed from './component/Home/feed/Feed';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <React.StrictMode>
 
-<Feed/>
+<Home/>
     
   </React.StrictMode>
 );

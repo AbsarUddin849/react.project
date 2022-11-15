@@ -1,0 +1,10 @@
+.banner{
+    padding: 12px;
+    height: 320px;
+    width: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-image: url();
+}
