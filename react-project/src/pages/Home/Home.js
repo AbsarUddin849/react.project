@@ -1,11 +1,9 @@
 
-// import Feed from '../../Component/Home/Feed/Feed';
-// import LoginOption from '../../component/Home/LoginOption/LoginOption';
-// import Logo from 'react-project/src/component/Home/Logo/Logo';
-import'./Home.css'
+import Feed from '../../component/Home/feed/Feed';
+import LoginOption from '../../component/Home/loginOption/LoginOption';
 import Logo from '../../component/Home/logo/Logo';
-  import Feed from '../../component/Home/feed/Feed';
-  import LoginOption from '../../component/Home/loginOption/LoginOption';
+import'./Home.css'
+
 
 function Home(){
     return(
