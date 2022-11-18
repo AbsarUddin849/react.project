@@ -1,3 +1,23 @@
 img{
     width: 40px;
 }
+li{
+    list-style: none ;
+
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90px;
+    margin-left: 50px;
+}
+.option{
+    font-size: 22px;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+    color: black;
+  
+}

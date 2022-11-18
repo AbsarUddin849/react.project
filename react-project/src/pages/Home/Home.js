@@ -1,5 +1,5 @@
 
-import Feed from '../../component/Home/feed/Feed';
+import Feed from '../../component/Home/Feed/Feed';
 import LoginOption from '../../component/Home/loginOption/LoginOption';
 import Logo from '../../component/Home/logo/Logo';
 import'./Home.css'
@@ -15,6 +15,7 @@ function Home(){
             <Feed/> 
              </div>
             <div className="rightContainer">
+             <button className="btn btn-primary">test </button> 
              <LoginOption/> 
              </div>
         </div>

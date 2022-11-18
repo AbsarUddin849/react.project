@@ -1,24 +1,46 @@
 import Trend from "../Trend/Trend";
 import "./Feed.css";
+import { useState, useEffect } from "react";
 
 function Feed() {
 
-  var trendData;
-// trendData[0].header
-  // Read data from json file/api/os/external resources.
-  // fetch function takes some to communicate with external resources.
+  // trendData is a variable to store data.
+  // setTrendData is a setter function to update the variable.
+  // useState converts into a state.
+  // state=> any changes will refresh the component.
+  const [trendData, setTrendData] = useState([]);
+  const [click, setClick] = useState(0);
+  const [click2, setClick2] = useState(0);
+  let data = "My Data";
+  console.log("Renders");
+  // manages sideeffects of component re-rendering.
+  useEffect(()=>{
+    // task which needs to be managed.
+    // 1. read data from trend.json file.
   fetch("trend.json")
-    .then(res=>
-      // convert data into json
-      res.json())
-      .then(res=>{
-        // print data on console.
-        console.log(res);
-        trendData=res;
-      })
+  // 2. Data is retrived.
+    .then(res=> {
+      console.log("Raw Data");
+      console.log(res);
+      return res.json();
+    })
+    // 3. Data is converted.
+      .then(convertedData=> {
+        // trendData = convertedData;
+        setTrendData(convertedData);
+      });
+  }, [click])
+
+  
 
   return (
+    
     <div className="feed-main">
+      <button onClick={()=>{setClick(click+1)}}>Click</button>
+      <button onClick={()=>{setClick2(click+1)}}>Click2</button>
+      <h1>{data}</h1>
+      {/* 0 */}
+      <h1>{trendData.length}</h1> 
       {/* Search box */}
       <div className="search-box">
         <div className="search-wrapper">
@@ -27,7 +49,7 @@ function Feed() {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-search"
+            className="bi bi-search"
             viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
           </svg>
@@ -38,7 +60,7 @@ function Feed() {
           height="20px"
           viewBox="0 0 24 24"
           aria-hidden="true"
-          class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03">
+          className="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03">
           <g>
             <path d="M10.54 1.75h2.92l1.57 2.36c.11.17.32.25.53.21l2.53-.59 2.17 2.17-.58 2.54c-.05.2.04.41.21.53l2.36 1.57v2.92l-2.36 1.57c-.17.12-.26.33-.21.53l.58 2.54-2.17 2.17-2.53-.59c-.21-.04-.42.04-.53.21l-1.57 2.36h-2.92l-1.58-2.36c-.11-.17-.32-.25-.52-.21l-2.54.59-2.17-2.17.58-2.54c.05-.2-.03-.41-.21-.53l-2.35-1.57v-2.92L4.1 8.97c.18-.12.26-.33.21-.53L3.73 5.9 5.9 3.73l2.54.59c.2.04.41-.04.52-.21l1.58-2.36zm1.07 2l-.98 1.47C10.05 6.08 9 6.5 7.99 6.27l-1.46-.34-.6.6.33 1.46c.24 1.01-.18 2.07-1.05 2.64l-1.46.98v.78l1.46.98c.87.57 1.29 1.63 1.05 2.64l-.33 1.46.6.6 1.46-.34c1.01-.23 2.06.19 2.64 1.05l.98 1.47h.78l.97-1.47c.58-.86 1.63-1.28 2.65-1.05l1.45.34.61-.6-.34-1.46c-.23-1.01.18-2.07 1.05-2.64l1.47-.98v-.78l-1.47-.98c-.87-.57-1.28-1.63-1.05-2.64l.34-1.46-.61-.6-1.45.34c-1.02.23-2.07-.19-2.65-1.05l-.97-1.47h-.78zM12 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5c.82 0 1.5-.67 1.5-1.5s-.68-1.5-1.5-1.5zM8.5 12c0-1.93 1.56-3.5 3.5-3.5 1.93 0 3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5c-1.94 0-3.5-1.57-3.5-3.5z"></path>
           </g>
@@ -68,14 +90,15 @@ function Feed() {
         <p className="text">Fans celebrate Sania Mirza's Birthday 🥳</p>
       </div>
       {/* Trends */}
-      <Trend 
-      header={trendData[0].header} 
-      text={trendData[0].text}
-      retweets={trendData[0].retweets} />
-      {/* <Trend />
-      <Trend />
-      <Trend />
-      <Trend /> */}
+      Trends
+      { 
+        trendData.map( data =>
+        <Trend  content={data}  />
+        )
+      }
+   
+    
+    
     </div>
   );
 }
